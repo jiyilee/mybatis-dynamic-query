@@ -29,6 +29,16 @@ class ExpressionHelper {
         return String.format("%s != null && %s.compareTo(%s) == 0", getProperty, propertyExpression, valueExpression);
     }
 
+    static String getNotEqualExpression(Class propertyType, String getProperty, Object filterValue) {
+        if (filterValue == null) {
+            return String.format("%s != null", getProperty);
+        }
+        String propertyExpression = getPropertyExpression(propertyType, getProperty);
+        String valueExpression = getValueExpression(propertyType, filterValue);
+        return String.format("%s == null || (%s != null && %s.compareTo(%s) != 0)",
+                getProperty, getProperty, propertyExpression, valueExpression);
+    }
+
     private static String getPropertyExpression(Class propertyType, String getProperty) {
         if (Date.class.isAssignableFrom(propertyType)) {
             return String.format("Long.valueOf(%s.getTime()))", getProperty);
