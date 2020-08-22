@@ -31,7 +31,7 @@ class ExpressionHelper {
 
     private static String getPropertyExpression(Class propertyType, String getProperty) {
         if (Date.class.isAssignableFrom(propertyType)) {
-            return String.format("Long.valueOf(\"%s\"))", getProperty);
+            return String.format("Long.valueOf(%s.getTime()))", getProperty);
         }
         return getProperty;
     }
