@@ -5,6 +5,7 @@ import com.github.wz2cool.dynamic.BaseSortDescriptor;
 import com.github.wz2cool.dynamic.DynamicQuery;
 import com.github.wz2cool.dynamic.helper.CommonsHelper;
 import com.github.wz2cool.dynamic.lambda.GetPropertyFunction;
+import com.github.wz2cool.dynamic.model.ColumnInfo;
 import com.github.wz2cool.dynamic.model.PropertyInfo;
 import org.apache.commons.lang3.StringUtils;
 

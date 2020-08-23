@@ -2,11 +2,11 @@ package com.github.wz2cool.dynamic.mybatis;
 
 import com.github.wz2cool.dynamic.exception.PropertyNotFoundInternalException;
 import com.github.wz2cool.dynamic.helper.ReflectHelper;
+import com.github.wz2cool.dynamic.model.ColumnInfo;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.Column;
 import javax.persistence.Transient;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

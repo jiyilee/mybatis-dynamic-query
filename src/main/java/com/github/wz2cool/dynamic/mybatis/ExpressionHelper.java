@@ -1,6 +1,7 @@
 package com.github.wz2cool.dynamic.mybatis;
 
 import com.github.wz2cool.dynamic.FilterOperator;
+import com.github.wz2cool.dynamic.model.ColumnInfo;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;

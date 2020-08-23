@@ -1,6 +1,7 @@
 package com.github.wz2cool.dynamic.mybatis;
 
 import com.github.wz2cool.dynamic.exception.PropertyNotFoundInternalException;
+import com.github.wz2cool.dynamic.model.ColumnInfo;
 import com.github.wz2cool.dynamic.model.Student;
 import org.junit.Test;
 
