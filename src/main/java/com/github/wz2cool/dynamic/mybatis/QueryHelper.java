@@ -3,6 +3,7 @@ package com.github.wz2cool.dynamic.mybatis;
 import com.github.wz2cool.dynamic.*;
 import com.github.wz2cool.dynamic.exception.PropertyNotFoundException;
 import com.github.wz2cool.dynamic.helper.CommonsHelper;
+import com.github.wz2cool.dynamic.helper.EntityHelper;
 import com.github.wz2cool.dynamic.model.ColumnInfo;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;

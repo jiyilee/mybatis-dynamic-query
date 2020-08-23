@@ -1,8 +1,10 @@
-package com.github.wz2cool.dynamic.mybatis;
+package com.github.wz2cool.dynamic;
 
 import com.github.wz2cool.dynamic.exception.PropertyNotFoundInternalException;
+import com.github.wz2cool.dynamic.helper.EntityHelper;
 import com.github.wz2cool.dynamic.helper.ReflectHelper;
 import com.github.wz2cool.dynamic.model.ColumnInfo;
+import com.github.wz2cool.dynamic.mybatis.View;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.persistence.Column;
@@ -11,7 +13,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-class EntityCache {
+public class EntityCache {
     private static EntityCache instance = new EntityCache();
     private final Map<Class, String[]> propertyNameCacheMap = new ConcurrentHashMap<>();
     private final Map<Class, Map<String, ColumnInfo>> columnInfoCacheMap = new ConcurrentHashMap<>();
@@ -23,13 +25,13 @@ class EntityCache {
     private EntityCache() {
     }
 
-    static EntityCache getInstance() {
+    public static EntityCache getInstance() {
         return instance;
     }
 
     // endregion
 
-    String getViewExpression(Class entityClass) {
+    public String getViewExpression(Class entityClass) {
         String viewExpression = viewExpressionCacheMap.get(entityClass);
         if (Objects.nonNull(viewExpression)) {
             return viewExpression;
@@ -45,7 +47,7 @@ class EntityCache {
         return viewExpression;
     }
 
-    String[] getPropertyNames(final Class entityClass) {
+    public String[] getPropertyNames(final Class entityClass) {
         if (entityClass == null) {
             throw new NullPointerException(ENTITY_CLASS);
         }
@@ -64,7 +66,7 @@ class EntityCache {
         }
     }
 
-    boolean hasProperty(final Class entityClass, final String propertyName) {
+    public boolean hasProperty(final Class entityClass, final String propertyName) {
         if (StringUtils.isBlank(propertyName)) {
             return false;
         }
@@ -79,7 +81,7 @@ class EntityCache {
         return false;
     }
 
-    ColumnInfo getColumnInfo(Class entityClass, String propertyName) {
+    public ColumnInfo getColumnInfo(Class entityClass, String propertyName) {
         if (propertyName == null) {
             throw new NullPointerException("propertyName");
         }
@@ -92,7 +94,7 @@ class EntityCache {
         return propertyDbColumnMap.get(propertyName);
     }
 
-    ColumnInfo[] getColumnInfos(Class entityClass) {
+    public ColumnInfo[] getColumnInfos(Class entityClass) {
         Map<String, ColumnInfo> propertyDbColumnMap = getPropertyColumnInfoMap(entityClass);
         Collection<ColumnInfo> columnInfos = propertyDbColumnMap.values();
         return columnInfos.toArray(new ColumnInfo[columnInfos.size()]);

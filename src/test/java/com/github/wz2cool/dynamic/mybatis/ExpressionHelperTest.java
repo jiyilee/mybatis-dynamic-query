@@ -1,5 +1,6 @@
 package com.github.wz2cool.dynamic.mybatis;
 
+import com.github.wz2cool.dynamic.EntityCache;
 import com.github.wz2cool.dynamic.model.ColumnInfo;
 import com.github.wz2cool.dynamic.model.HelloWorld;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.github.wz2cool.dynamic.mybatis;
+package com.github.wz2cool.dynamic.helper;
 
 import com.github.wz2cool.dynamic.exception.PropertyNotFoundInternalException;
 import org.apache.commons.lang3.StringUtils;
@@ -15,7 +15,7 @@ public class EntityHelper {
         throw new UnsupportedOperationException();
     }
 
-    static String getTableName(final Class<?> tableClass) {
+    public static String getTableName(final Class<?> tableClass) {
         if (tableClass == null) {
             throw new NullPointerException("tableClass");
         }
@@ -32,7 +32,7 @@ public class EntityHelper {
         return camelCaseToUnderscore(useTableName);
     }
 
-    static String getColumnNameByProperty(final String propertyName, final Field[] properties) {
+    public static String getColumnNameByProperty(final String propertyName, final Field[] properties) {
         Field matchProperty = getPropertyField(propertyName, properties);
         Column column = getColumnByProperty(propertyName, properties);
         if (column != null && StringUtils.isNotBlank(column.name())) {
@@ -44,7 +44,7 @@ public class EntityHelper {
         return camelCaseToUnderscore(usePropertyName);
     }
 
-    static Column getColumnByProperty(final String propertyName, final Field[] properties) {
+    public static Column getColumnByProperty(final String propertyName, final Field[] properties) {
         Field matchProperty = getPropertyField(propertyName, properties);
         if (matchProperty.isAnnotationPresent(Column.class)) {
             return matchProperty.getAnnotation(Column.class);
@@ -53,7 +53,7 @@ public class EntityHelper {
         return null;
     }
 
-    static Field getPropertyField(final String propertyName, final Field[] properties) {
+    public static Field getPropertyField(final String propertyName, final Field[] properties) {
         if (StringUtils.isBlank(propertyName) || properties == null || properties.length == 0) {
             throw new PropertyNotFoundInternalException(String.format("Can't find property: %s", propertyName));
         }

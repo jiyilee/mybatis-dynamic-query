@@ -56,7 +56,7 @@ public abstract class BaseEnhancedMapperTemplate extends MapperTemplate {
         for (EntityColumn entityColumn : entityColumnSet) {
             String column = entityColumn.getColumn();
 
-            String useColumn = isMapUnderscoreToCamelCase ? com.github.wz2cool.dynamic.mybatis.EntityHelper.camelCaseToUnderscore(column) : column;
+            String useColumn = isMapUnderscoreToCamelCase ? com.github.wz2cool.dynamic.helper.EntityHelper.camelCaseToUnderscore(column) : column;
             ResultMapping.Builder builder = new ResultMapping.Builder(configuration, entityColumn.getProperty(), useColumn, entityColumn.getJavaType());
             if (entityColumn.getJdbcType() != null) {
                 builder.jdbcType(entityColumn.getJdbcType());
