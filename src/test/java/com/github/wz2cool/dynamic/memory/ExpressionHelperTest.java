@@ -1,5 +1,6 @@
-package com.github.wz2cool.dynamic.memory.helper;
+package com.github.wz2cool.dynamic.memory;
 
+import com.github.wz2cool.dynamic.memory.helper.ExpressionHelper;
 import org.junit.Assert;
 import org.junit.Test;
 

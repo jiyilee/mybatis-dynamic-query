@@ -6,6 +6,7 @@ import com.github.wz2cool.dynamic.helper.ReflectHelper;
 import com.github.wz2cool.dynamic.model.ColumnInfo;
 import com.github.wz2cool.dynamic.mybatis.View;
 import org.apache.commons.lang3.StringUtils;
+import tk.mybatis.mapper.mapperhelper.FieldHelper;
 
 import javax.persistence.Column;
 import javax.persistence.Transient;
